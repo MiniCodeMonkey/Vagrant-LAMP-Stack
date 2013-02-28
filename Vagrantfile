@@ -1,0 +1,39 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant::Config.run do |config|
+  # Define VM to use
+  config.vm.box = "precise32"
+  config.vm.box_url = "http://files.vagrantup.com/precise32.box"
+
+  # Define hostname to be used with Hostmaster
+  config.vm.host_name = "laravel.dev"
+  config.hosts.aliases = %w(laravel.dev)
+
+  # Use hostonly network with static IP Address
+  config.vm.network :hostonly, "33.33.33.60"
+
+  # Enable and configure chef solo
+  config.vm.provision :chef_solo do |chef|
+    chef.cookbooks_path = ["cookbooks"]
+    chef.add_recipe "apt"
+    chef.add_recipe "openssl"
+    chef.add_recipe "apache2"
+    chef.add_recipe "mysql"
+    chef.add_recipe "mysql::server"
+    chef.add_recipe "php"
+    chef.add_recipe "php::module_apc"
+    chef.add_recipe "php::module_curl"
+    chef.add_recipe "php::module_mysql"
+    chef.add_recipe "apache2::mod_php5"
+    chef.add_recipe "apache2::mod_rewrite"
+    chef.json = {
+      :mysql => {
+        :server_root_password => 'root',
+        :server_repl_password => 'root',
+        :server_debian_password => 'root',
+        :bind_address => '127.0.0.1'
+      }
+    }
+  end
+end
