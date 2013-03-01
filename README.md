@@ -7,14 +7,12 @@ This is a work in progress.
 * [vagrant-hostmaster](https://github.com/mosaicxm/vagrant-hostmaster)
 * [Composer](http://getcomposer.org) (Required to install Laravel)
 
-    $ gem install vagrant
-    $ vagrant gem install vagrant-hostmaster
-
 ## Installation
 Clone this repository
 
     $ git clone git@github.com:MiniCodeMonkey/Vagrant-LAMP-Laravel4.git Laravel4
     $ cd Laravel4
+    $ git submodule update --init
 
 Download Laravel 4 Beta 3
 
@@ -30,6 +28,7 @@ Configure Laravel 4
 
 Start VM
 
+	$ cd ..
     $ vagrant up
 
 ## Usage
