@@ -14,6 +14,9 @@ Clone this repository
     $ cd Laravel4
     $ git submodule update --init
 
+## Download and configure Laravel (optional)
+> You can also import your own Laravel project instead here
+
 Download Laravel 4 Beta 3
 
     $ wget https://github.com/laravel/laravel/archive/v4.0.0-BETA3.zip
@@ -26,12 +29,12 @@ Configure Laravel 4
 	$ composer install
 	$ php artisan key:generate
 
+## Usage
 Start VM
 
 	$ cd ..
     $ vagrant up
 
-## Usage
 [http://laravel.dev](http://laravel.dev)
 
 ## Installed software:
