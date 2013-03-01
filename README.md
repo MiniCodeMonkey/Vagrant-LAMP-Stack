@@ -14,7 +14,7 @@ This is a work in progress.
 Clone this repository
 
     $ git clone git@github.com:MiniCodeMonkey/Vagrant-LAMP-Laravel4.git Laravel4
-    $ cd Laravel 4
+    $ cd Laravel4
 
 Download Laravel 4 Beta 3
 
