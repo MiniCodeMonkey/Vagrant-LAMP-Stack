@@ -1,5 +1,5 @@
 # Vagrant LAMP stack for Laravel 4
-This is a work in progress.
+This is a work in progress, but a basic setup is ready now.
 
 ## Requirements:
 * [VirtualBox](https://www.virtualbox.org)
@@ -35,7 +35,7 @@ Start VM
 	$ cd ..
     $ vagrant up
 
-[http://laravel.dev](http://laravel.dev)
+You can now access your project at [http://laravel.dev](http://laravel.dev)
 
 ## Installed software:
 * Apache
@@ -43,4 +43,5 @@ Start VM
 * php
 
 ## TODO
-* Include Laravel?
+* Fully configure MySQL with Laravel
+* Include Laravel or Laravel install script?
