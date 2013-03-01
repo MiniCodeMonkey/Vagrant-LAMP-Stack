@@ -12,24 +12,28 @@ This is a work in progress.
 
 ## Installation
 Clone this repository
+
     $ git clone git@github.com:MiniCodeMonkey/Vagrant-LAMP-Laravel4.git Laravel4
     $ cd Laravel 4
 
 Download Laravel 4 Beta 3
+
     $ wget https://github.com/laravel/laravel/archive/v4.0.0-BETA3.zip
     $ unzip v4.0.0-BETA3.zip && rm v4.0.0-BETA3.zip
     $ mv laravel-4.0.0-BETA3 laravel
 
 Configure Laravel 4
+
 	$ cd laravel
 	$ composer install
 	$ php artisan key:generate
 
 Start VM
+
     $ vagrant up
 
 ## Usage
-http://laravel.dev
+[http://laravel.dev](http://laravel.dev)
 
 ## Installed software:
 * Apache
