@@ -22,11 +22,9 @@ Vagrant::Config.run do |config|
     chef.add_recipe "mysql"
     chef.add_recipe "mysql::server"
     chef.add_recipe "php"
-    chef.add_recipe "php::module_apc"
-    chef.add_recipe "php::module_curl"
-    chef.add_recipe "php::module_mysql"
     chef.add_recipe "apache2::mod_php5"
     chef.add_recipe "apache2::mod_rewrite"
+    chef.add_recipe "laravel"
     chef.json = {
       :mysql => {
         :server_root_password => 'root',
