@@ -26,6 +26,7 @@ You can now access your project at [http://server.dev](http://server.dev)
 * MySQL
 * php
 * memcached
+* vim, git
 
 ## Default credentials
 ### MySQL
