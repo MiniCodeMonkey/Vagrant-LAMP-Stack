@@ -8,10 +8,10 @@ Vagrant::Config.run do |config|
 
   # Define hostname to be used with Hostmaster
   config.vm.host_name = "laravel.dev"
-  config.hosts.aliases = %w(laravel.dev)
+  config.hosts.name = "laravel.dev"
 
   # Use hostonly network with static IP Address
-  config.vm.network :hostonly, "33.33.33.60"
+  config.vm.network :hostonly, "172.90.90.90"
 
   # Enable and configure chef solo
   config.vm.provision :chef_solo do |chef|
@@ -19,6 +19,7 @@ Vagrant::Config.run do |config|
     chef.add_recipe "apt"
     chef.add_recipe "openssl"
     chef.add_recipe "apache2"
+    chef.add_recipe "memcached"
     chef.add_recipe "mysql"
     chef.add_recipe "mysql::server"
     chef.add_recipe "php"
@@ -29,8 +30,7 @@ Vagrant::Config.run do |config|
       :mysql => {
         :server_root_password => 'root',
         :server_repl_password => 'root',
-        :server_debian_password => 'root',
-        :bind_address => '127.0.0.1'
+        :server_debian_password => 'root'
       }
     }
   end
