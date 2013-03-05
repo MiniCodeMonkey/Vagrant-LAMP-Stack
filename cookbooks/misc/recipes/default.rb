@@ -13,7 +13,7 @@
 end
 
 # Install PHP5 packages
-%w{ php5-mysql php5-curl php5-mcrypt php5-memcached }.each do |a_package|
+%w{ php5-mysql php5-curl php5-mcrypt php5-memcached php5-gd php5-imagick }.each do |a_package|
   package a_package
 end
 

@@ -29,7 +29,7 @@ You can now access your project at [http://server.dev](http://server.dev)
 ## Installed software:
 * Apache
 * MySQL
-* php (mysql, curl, mcrypt, memcached)
+* php (mysql, curl, mcrypt, memcached, gd, imagick)
 * memcached
 * vim, git, screen, curl, composer
 
@@ -40,7 +40,7 @@ You can now access your project at [http://server.dev](http://server.dev)
 * Host: localhost
 * Port: 3306
 
-**Note:** Remote MySQL access is enabled by default, so you can access the MySQL database using your favorite MySQL client with the above credentials.
+**Note:** Remote MySQL access is enabled by default, so you can access the MySQL database using your favorite MySQL client with the above credentials (and using e.g. *server.dev* as hostname).
 
 ### Memcached
 * Port: 11211
