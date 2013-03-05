@@ -17,6 +17,7 @@ Place your website in the *public_html* folder
 
 ## Usage
 Start the VM
+
 	$ vagrant up
 
 You can now access your project at [http://server.dev](http://server.dev)
