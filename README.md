@@ -1,5 +1,7 @@
 # Vagrant LAMP stack
-This is a work in progress, but a basic setup is ready now.
+A dead-simple LAMP stack without any whistles and bells for your basic Apache/PHP/MySQL install.
+
+Fork this and add additional software and configuration that suits the needs of your project.
 
 ## Requirements:
 * [VirtualBox](https://www.virtualbox.org)
