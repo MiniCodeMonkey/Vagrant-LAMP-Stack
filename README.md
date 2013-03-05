@@ -25,9 +25,9 @@ You can now access your project at [http://server.dev](http://server.dev)
 ## Installed software:
 * Apache
 * MySQL
-* php
+* php (mysql, curl, mcrypt, memcached)
 * memcached
-* vim, git
+* vim, git, screen, curl, composer
 
 ## Default credentials
 ### MySQL
