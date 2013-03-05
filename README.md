@@ -24,7 +24,7 @@ Start the VM
 
 You can now access your project at [http://server.dev](http://server.dev)
 
-![Screenshot of up-and-running server](http://i.imgur.com/228gQEw.png)
+![Screenshot of up-and-running server](http://i.imgur.com/qqhX4HY.png)
 
 ## Installed software:
 * Apache
