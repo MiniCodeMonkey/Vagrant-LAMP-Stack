@@ -1,0 +1,17 @@
+<VirtualHost *:80>
+  ServerName <%= @params[:server_name] %>
+  ServerAlias <% @params[:server_aliases] && @params[:server_aliases].each do |a| %><%= "#{a}" %> <% end %>
+  DocumentRoot <%= @params[:docroot] %>
+
+  <Directory <%= @params[:docroot] %>>
+    EnableSendfile Off
+    Options FollowSymLinks
+    AllowOverride All
+    Order allow,deny
+    Allow from all
+  </Directory>
+
+  LogLevel info
+  ErrorLog <%= @node[:apache][:log_dir] %>/<%= @params[:name] %>-error.log
+  CustomLog <%= @node[:apache][:log_dir] %>/<%= @params[:name] %>-access.log combined
+</VirtualHost>

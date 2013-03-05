@@ -7,8 +7,8 @@ Vagrant::Config.run do |config|
   config.vm.box_url = "http://files.vagrantup.com/precise32.box"
 
   # Define hostname to be used with Hostmaster
-  config.vm.host_name = "laravel.dev"
-  config.hosts.name = "laravel.dev"
+  config.vm.host_name = "server.dev"
+  config.hosts.name = "server.dev"
 
   # Use hostonly network with static IP Address
   config.vm.network :hostonly, "172.90.90.90"
@@ -25,7 +25,7 @@ Vagrant::Config.run do |config|
     chef.add_recipe "php"
     chef.add_recipe "apache2::mod_php5"
     chef.add_recipe "apache2::mod_rewrite"
-    chef.add_recipe "laravel"
+    chef.add_recipe "misc"
     chef.json = {
       :mysql => {
         :server_root_password => 'root',

@@ -1,0 +1,6 @@
+name             'misc'
+maintainer       'Mathias Hansen'
+maintainer_email 'me@codemonkey.io'
+license          'All rights reserved'
+description      'Installs/Configures misc'
+version          '0.1.0'
