@@ -22,9 +22,9 @@ execute "disable-default-site" do
   command "a2dissite default"
 end
 
-# Fix deprecated comments in PHP ini files
+# Fix deprecated comments in PHP ini files by replacing '#' with ';'
 bash "fix-phpcomments" do
-  code "find /etc/php5/cli/conf.d/ -name \"*.ini\" -exec sed -i -re 's/^(\s*)#(.*)/\1;\2/g' {} \;"
+  code "find /etc/php5/cli/conf.d/ -name '*.ini' -exec sed -i -re 's/^(\\s*)#(.*)/\\1;\\2/g' {} \\;"
   notifies :restart, resources("service[apache2]"), :delayed
 end
 
