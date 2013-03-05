@@ -43,3 +43,13 @@ bash "composer" do
     sudo mv composer.phar /usr/local/bin/composer
   EOH
 end
+
+# Let MySQL root user have access from any host
+execute "update-root-mysql-user" do
+  command "/usr/bin/mysql -u root -p#{node[:mysql][:server_root_password]} -e \"" +
+      "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION;" +
+      "FLUSH PRIVILEGES;\" " +
+      "mysql"
+  action :run
+  ignore_failure true
+end

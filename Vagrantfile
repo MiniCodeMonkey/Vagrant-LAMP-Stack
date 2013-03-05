@@ -30,7 +30,8 @@ Vagrant::Config.run do |config|
       :mysql => {
         :server_root_password => 'root',
         :server_repl_password => 'root',
-        :server_debian_password => 'root'
+        :server_debian_password => 'root',
+        :bind_address => '0.0.0.0'
       }
     }
   end

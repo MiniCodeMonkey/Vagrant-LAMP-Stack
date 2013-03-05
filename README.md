@@ -38,5 +38,7 @@ You can now access your project at [http://server.dev](http://server.dev)
 * Host: localhost
 * Port: 3306
 
+**Note:** Remote MySQL access is enabled by default, so you can access the MySQL database using your favorite MySQL client with the above credentials.
+
 ### Memcached
 * Port: 11211
