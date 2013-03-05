@@ -64,6 +64,9 @@ if ($m->addServer('localhost', 11211)) {
 		margin-top: -5px;
 		margin-right: 12px;
 	}
+	table td:first-child {
+		width: 300px;
+	}
     </style>
 </head>
 <body>
@@ -73,8 +76,9 @@ if ($m->addServer('localhost', 11211)) {
 				<i class="icon-lightbulb icon-4x"></i>
 				<h1>It works!</h1>
 			</div>
-			<p class="lead">The Virtual Machine is up and running, yay! Here's some additional software info.</p>
+			<p class="lead">The Virtual Machine is up and running, yay! Here's some additional information you might need.</p>
 
+			<h3>Installed software</h3>
 			<table class="table table-striped">
 				<tr>
 					<td>PHP Version</td>
@@ -102,7 +106,7 @@ if ($m->addServer('localhost', 11211)) {
 				</tr>
 			</table>
 
-			<h3>Installed PHP Modules</h3>
+			<h3>PHP Modules</h3>
 			<table class="table table-striped">
 				<tr>
 					<td>MySQL</td>
@@ -132,6 +136,28 @@ if ($m->addServer('localhost', 11211)) {
 				<tr>
 					<td>imagick</td>
 					<td><i class="icon-<?php echo (class_exists('Imagick') ? 'ok' : 'remove'); ?>"></i></td>
+				</tr>
+			</table>
+
+			<h3>MySQL credentials</h3>
+			<table class="table table-striped">
+				<tr>
+					<td>Hostname</td>
+					<td>localhost</td>
+				</tr>
+
+				<tr>
+					<td>Username</td>
+					<td>root</td>
+				</tr>
+
+				<tr>
+					<td>Password</td>
+					<td>root</td>
+				</tr>
+
+				<tr>
+					<td colspan="2"><em>Note: External access is enabled! Just use <strong><?php echo $_SERVER['SERVER_ADDR'] ?></strong> as host.</em></td>
 				</tr>
 			</table>
 		</div>
