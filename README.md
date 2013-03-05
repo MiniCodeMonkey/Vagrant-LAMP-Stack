@@ -13,13 +13,11 @@ Clone this repository
     $ cd Vagrant-LAMP-Stack
     $ git submodule update --init
 
-Place your website in the public_html folder
+Place your website in the *public_html* folder
 
 ## Usage
-Start VM
-
-	$ cd ..
-    $ vagrant up
+Start the VM
+	$ vagrant up
 
 You can now access your project at [http://server.dev](http://server.dev)
 
@@ -31,10 +29,10 @@ You can now access your project at [http://server.dev](http://server.dev)
 
 ## Default credentials
 ### MySQL
-Username: root
-Password: root
-Host: localhost
-Port: 3306
+* Username: root
+* Password: root
+* Host: localhost
+* Port: 3306
 
 ### Memcached
-Port: 11211
+* Port: 11211
