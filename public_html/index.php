@@ -101,6 +101,39 @@ if ($m->addServer('localhost', 11211)) {
 					<td><?php echo ($memcached_version ? $memcached_version : 'N/A'); ?></td>
 				</tr>
 			</table>
+
+			<h3>Installed PHP Modules</h3>
+			<table class="table table-striped">
+				<tr>
+					<td>MySQL</td>
+					<td><i class="icon-<?php echo (class_exists('mysqli') ? 'ok' : 'remove'); ?>"></i></td>
+				</tr>
+
+				<tr>
+					<td>CURL</td>
+					<td><i class="icon-<?php echo (function_exists('curl_init') ? 'ok' : 'remove'); ?>"></i></td>
+				</tr>
+
+				<tr>
+					<td>mcrypt</td>
+					<td><i class="icon-<?php echo (function_exists('mcrypt_encrypt') ? 'ok' : 'remove'); ?>"></i></td>
+				</tr>
+
+				<tr>
+					<td>memcached</td>
+					<td><i class="icon-<?php echo (class_exists('Memcached') ? 'ok' : 'remove'); ?>"></i></td>
+				</tr>
+
+				<tr>
+					<td>gd</td>
+					<td><i class="icon-<?php echo (function_exists('imagecreate') ? 'ok' : 'remove'); ?>"></i></td>
+				</tr>
+
+				<tr>
+					<td>imagick</td>
+					<td><i class="icon-<?php echo (class_exists('Imagick') ? 'ok' : 'remove'); ?>"></i></td>
+				</tr>
+			</table>
 		</div>
 
 		<div id="push"></div>
