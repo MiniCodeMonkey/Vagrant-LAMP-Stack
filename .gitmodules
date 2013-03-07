@@ -19,3 +19,6 @@
 [submodule "cookbooks/memcached"]
 	path = cookbooks/memcached
 	url = git@github.com:opscode-cookbooks/memcached.git
+[submodule "cookbooks/dotdeb"]
+	path = cookbooks/dotdeb
+	url = git@github.com:homemade/chef-dotdeb.git

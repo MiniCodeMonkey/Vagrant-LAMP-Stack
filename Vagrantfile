@@ -19,13 +19,15 @@ Vagrant::Config.run do |config|
     chef.add_recipe "apt"
     chef.add_recipe "openssl"
     chef.add_recipe "apache2"
-    chef.add_recipe "memcached"
-    chef.add_recipe "mysql"
-    chef.add_recipe "mysql::server"
-    chef.add_recipe "php"
     chef.add_recipe "apache2::mod_php5"
     chef.add_recipe "apache2::mod_rewrite"
+    chef.add_recipe "mysql"
+    chef.add_recipe "mysql::server"
+    chef.add_recipe "memcached"
     chef.add_recipe "misc"
+    chef.add_recipe "dotdeb"
+    chef.add_recipe "dotdeb::php54"
+    chef.add_recipe "php"
     chef.json = {
       :mysql => {
         :server_root_password => 'root',

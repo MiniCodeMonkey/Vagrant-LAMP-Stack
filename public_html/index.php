@@ -132,11 +132,6 @@ if ($m->addServer('localhost', 11211)) {
 					<td>gd</td>
 					<td><i class="icon-<?php echo (function_exists('imagecreate') ? 'ok' : 'remove'); ?>"></i></td>
 				</tr>
-
-				<tr>
-					<td>imagick</td>
-					<td><i class="icon-<?php echo (class_exists('Imagick') ? 'ok' : 'remove'); ?>"></i></td>
-				</tr>
 			</table>
 
 			<h3>MySQL credentials</h3>

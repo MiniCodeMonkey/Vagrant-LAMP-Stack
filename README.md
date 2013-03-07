@@ -1,5 +1,5 @@
 # Vagrant LAMP stack
-A dead-simple LAMP stack without any whistles and bells for your basic Apache/PHP/MySQL install.
+A dead-simple LAMP stack without any bells and whistles for your basic Linux/Apache/MySQL/PHP install.
 
 Fork this and add additional software and configuration that suits the needs of your project.
 
@@ -24,12 +24,12 @@ Start the VM
 
 You can now access your project at [http://server.dev](http://server.dev)
 
-![Screenshot of up-and-running server](http://i.imgur.com/qqhX4HY.png)
+![Screenshot of up-and-running server](http://i.imgur.com/TP1i9Zd.png)
 
 ## Installed software:
-* Apache
+* Apache 2
 * MySQL
-* php (mysql, curl, mcrypt, memcached, gd, imagick)
+* PHP 5.4 (with mysql, curl, mcrypt, memcached, gd)
 * memcached
 * vim, git, screen, curl, composer
 
