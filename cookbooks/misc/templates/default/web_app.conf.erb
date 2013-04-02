@@ -1,14 +1,19 @@
 <VirtualHost *:80>
   ServerName <%= @params[:server_name] %>
-  ServerAlias <% @params[:server_aliases] && @params[:server_aliases].each do |a| %><%= "#{a}" %> <% end %>
+  ServerAlias <% @params[:server_aliases].each do |a| %><%= a %> <% end %>
   DocumentRoot <%= @params[:docroot] %>
 
   <Directory <%= @params[:docroot] %>>
     EnableSendfile Off
     Options FollowSymLinks
-    AllowOverride All
+    AllowOverride <%= [@params[:allow_override] || "All" ].flatten.join " " %>
     Order allow,deny
     Allow from all
+  </Directory>
+
+  <Directory />
+    Options FollowSymLinks
+    AllowOverride None
   </Directory>
 
   php_flag display_startup_errors on
@@ -21,3 +26,45 @@
   ErrorLog <%= @node[:apache][:log_dir] %>/<%= @params[:name] %>-error.log
   CustomLog <%= @node[:apache][:log_dir] %>/<%= @params[:name] %>-access.log combined
 </VirtualHost>
+
+<IfModule mod_ssl.c>
+<VirtualHost _default_:443>
+  ServerName <%= @params[:server_name] %>
+  ServerAlias <% @params[:server_aliases].each do |a| %><%= a %> <% end %>
+  DocumentRoot <%= @params[:docroot] %>
+
+  <Directory <%= @params[:docroot] %>>
+    EnableSendfile Off
+    Options FollowSymLinks
+    AllowOverride <%= [@params[:allow_override] || "All" ].flatten.join " " %>
+    Order allow,deny
+    Allow from all
+  </Directory>
+
+  <Directory />
+    Options FollowSymLinks
+    AllowOverride None
+  </Directory>
+
+  php_flag display_startup_errors on
+  php_flag display_errors on
+  php_flag html_errors on
+  php_flag log_errors on
+  php_value error_log  <%= @node[:apache][:log_dir] %>/<%= @params[:name] %>-phperrors.log
+
+  LogLevel info
+  ErrorLog <%= @node[:apache][:log_dir] %>/<%= @params[:name] %>-error.log
+  CustomLog <%= @node[:apache][:log_dir] %>/<%= @params[:name] %>-access.log combined
+
+  SSLEngine on
+  SSLCertificateFile    /etc/ssl/certs/ssl-cert-snakeoil.pem
+  SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
+  
+  BrowserMatch "MSIE [2-6]" \
+    nokeepalive ssl-unclean-shutdown \
+    downgrade-1.0 force-response-1.0
+  # MSIE 7 and newer should be able to use keepalive
+  BrowserMatch "MSIE [17-9]" ssl-unclean-shutdown
+
+</VirtualHost>
+</IfModule>
