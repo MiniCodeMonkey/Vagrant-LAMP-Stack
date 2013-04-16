@@ -52,6 +52,9 @@ Vagrant::Config.run do |config|
         # Name of MySQL database that should be created
         :db_name        => "dbname",
 
+        # Optional database dump to be imported when server is provisioned
+        :db_dump        => "/home/vagrant/shared/dump.sql",
+
         # Server name and alias(es) for Apache vhost
         :server_name    => "server.dev",
         :server_aliases => "*.server.dev",

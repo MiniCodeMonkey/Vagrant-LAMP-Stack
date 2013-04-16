@@ -1,25 +1,26 @@
 # Vagrant LAMP stack
-A dead-simple LAMP stack without any bells and whistles for your basic Linux/Apache/MySQL/PHP install.
+A dead-simple LAMP stack without any bells and whistles for your basic Linux/Apache/MySQL/PHP install, using Chef Solo for provisioning.
 
-Fork this and add additional software and configuration that suits the needs of your project.
+The idea is for developers to fork this and add additional software and configuration that suits the needs of their project.
 
 ## Requirements:
 * [VirtualBox](https://www.virtualbox.org)
 * [Vagrant](http://vagrantup.com)
 * [vagrant-hostmaster](https://github.com/mosaicxm/vagrant-hostmaster)
 
-## Installation
-Clone this repository
+**Note:** Because of several dependencies, this project requires Vagrant 1.0.x for now.
 
-    $ git clone git@github.com:MiniCodeMonkey/Vagrant-LAMP-Stack.git
-    $ cd Vagrant-LAMP-Stack
-    $ git submodule update --init
+## Installation
+Clone this repository and it's submodules
+
+    $ git clone git@github.com:MiniCodeMonkey/Vagrant-LAMP-Stack.git --recursive
 
 Place your website in the *public_html* folder
 
 ## Usage
 Start the VM
 
+	$ cd Vagrant-LAMP-Stack
 	$ vagrant up
 
 You can now access your project at [http://server.dev](http://server.dev)
