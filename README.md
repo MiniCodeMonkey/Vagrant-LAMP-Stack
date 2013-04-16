@@ -3,7 +3,7 @@ A dead-simple LAMP stack without any bells and whistles for your basic Linux/Apa
 
 The idea is for developers to fork this and add additional software and configuration that suits the needs of their project.
 
-## Requirements:
+## Requirements
 * [VirtualBox](https://www.virtualbox.org)
 * [Vagrant](http://vagrantup.com)
 * [vagrant-hostmaster](https://github.com/mosaicxm/vagrant-hostmaster)
@@ -15,7 +15,7 @@ Clone this repository and it's submodules
 
     $ git clone git@github.com:MiniCodeMonkey/Vagrant-LAMP-Stack.git --recursive
 
-Place your website in the *public_html* folder
+Place your website in the `public_html` folder
 
 ## Usage
 Start the VM
@@ -27,7 +27,12 @@ You can now access your project at [http://server.dev](http://server.dev)
 
 ![Screenshot of up-and-running server](http://i.imgur.com/TP1i9Zd.png)
 
-## Installed software:
+### Database dump import
+Chef will automatically try to import the database dump specified by the filename set in the `:db_dump` option of your Vagrantfile.
+
+If you are using the default configuration, just create a `dump.sql` file in the root directory with your table structure and/or content and it will be imported automatically when you run `vagrant up`.
+
+## Installed software
 * Apache 2
 * MySQL
 * PHP 5.4 (with mysql, curl, mcrypt, memcached, gd)
