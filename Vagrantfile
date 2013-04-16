@@ -30,6 +30,7 @@ Vagrant::Config.run do |config|
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = ["cookbooks"]
     chef.add_recipe "apt"
+    chef.add_recipe "postfix"
     chef.add_recipe "openssl"
     chef.add_recipe "apache2"
     chef.add_recipe "apache2::mod_php5"
@@ -53,6 +54,7 @@ Vagrant::Config.run do |config|
         :db_name        => "dbname",
 
         # Optional database dump to be imported when server is provisioned
+        # If the file doesn't exist, it is just ignored
         :db_dump        => "/home/vagrant/shared/dump.sql",
 
         # Server name and alias(es) for Apache vhost

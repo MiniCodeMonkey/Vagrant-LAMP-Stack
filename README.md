@@ -37,6 +37,7 @@ If you are using the default configuration, just create a `dump.sql` file in the
 * MySQL
 * PHP 5.4 (with mysql, curl, mcrypt, memcached, gd)
 * memcached
+* postfix
 * vim, git, screen, curl, composer
 
 ## Default credentials

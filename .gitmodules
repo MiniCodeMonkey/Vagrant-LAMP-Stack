@@ -22,3 +22,6 @@
 [submodule "cookbooks/dotdeb"]
 	path = cookbooks/dotdeb
 	url = git@github.com:homemade/chef-dotdeb.git
+[submodule "cookbooks/postfix"]
+	path = cookbooks/postfix
+	url = https://github.com/opscode-cookbooks/postfix
