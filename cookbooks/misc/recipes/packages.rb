@@ -23,7 +23,7 @@ end
 
 # Disable SendFile in Apache as it causes issues with NFS
 bash "disable-sendfile" do
-  code "echo 'EnableSendfile off' >> /etc/apache2/httpd.conf"
+  code "echo 'EnableSendfile off' > /etc/apache2/conf.d/sendfile"
   notifies :restart, resources("service[apache2]"), :delayed
 end
 
