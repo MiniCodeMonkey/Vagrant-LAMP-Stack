@@ -21,6 +21,12 @@ bash "fix-phpcomments" do
   notifies :restart, resources("service[apache2]"), :delayed
 end
 
+# Disable SendFile in Apache as it causes issues with NFS
+bash "disable-sendfile" do
+  code "echo 'EnableSendfile off' >> /etc/apache2/httpd.confD"
+  notifies :restart, resources("service[apache2]"), :delayed
+end
+
 # Install Composer
 bash "composer" do
   code <<-EOH
