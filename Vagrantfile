@@ -24,24 +24,17 @@ Vagrant.configure("2") do |config|
 
   # Enable and configure chef solo
   config.vm.provision :chef_solo do |chef|
-    chef.add_recipe "apt"
-    chef.add_recipe "postfix"
-    chef.add_recipe "openssl"
-    chef.add_recipe "apache2"
-    chef.add_recipe "apache2::mod_php5"
-    chef.add_recipe "apache2::mod_rewrite"
-    chef.add_recipe "apache2::mod_ssl"
+    chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
+    chef.add_recipe "app::packages"
+    chef.add_recipe "app::web_server"
+    chef.add_recipe "app::vhost"
+    chef.add_recipe "memcached"
     chef.add_recipe "mysql"
     chef.add_recipe "mysql::server"
-    chef.add_recipe "memcached"
-    chef.add_recipe "misc::packages"
-    chef.add_recipe "misc::vhost"
-    chef.add_recipe "misc::db"
-    chef.add_recipe "dotdeb"
-    chef.add_recipe "dotdeb::php54"
-    chef.add_recipe "php"
+    chef.add_recipe "app::db"
+    chef.add_recipe "postfix"
     chef.json = {
-      :misc => {
+      :app => {
         # Project name
         :name           => "projectname",
 
@@ -58,6 +51,12 @@ Vagrant.configure("2") do |config|
 
         # Document root for Apache vhost
         :docroot        => "/var/www/projectname/public_html",
+
+        # General packages
+        :packages   => %w{ vim git screen curl },
+        
+        # PHP packages
+        :php_packages   => %w{ php5-mysqlnd php5-curl php5-mcrypt php5-memcached php5-gd }
       },
       :mysql => {
         :server_root_password   => 'root',
