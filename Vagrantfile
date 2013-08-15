@@ -13,14 +13,15 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder "./" , "/var/www/projectname/"
 
   # Use hostonly network with a static IP Address
+  # and enable hostmanager
   config.hostmanager.enabled = true
   config.hostmanager.manage_host = true
-  config.hostmanager.include_offline = true
   config.vm.define 'projectname' do |node|
     node.vm.hostname = 'projectname.local'
     node.vm.network :private_network, ip: '172.90.90.90'
     node.hostmanager.aliases = %w(www.projectname.local)
   end
+  config.vm.provision :hostmanager
 
   # Enable and configure chef solo
   config.vm.provision :chef_solo do |chef|
@@ -59,7 +60,7 @@ Vagrant.configure("2") do |config|
         :server_root_password   => 'root',
         :server_repl_password   => 'root',
         :server_debian_password => 'root',
-        :bind_address           => '0.0.0.0',
+        :bind_address           => '172.90.90.90',
         :allow_remote_root      => true
       }
     }
