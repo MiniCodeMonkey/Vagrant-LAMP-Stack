@@ -28,7 +28,7 @@ Start the VM
 	$ cd Vagrant-LAMP-Stack
 	$ vagrant up
 
-You can now access your project at [http://server.dev](http://server.dev)
+You can now access your project at [http://projectname.local](http://projectname.local)
 
 ![Screenshot of up-and-running server](http://i.imgur.com/TP1i9Zd.png)
 
@@ -52,7 +52,7 @@ If you are using the default configuration, just create a `dump.sql` file in the
 * Host: localhost
 * Port: 3306
 
-**Note:** Remote MySQL access is enabled by default, so you can access the MySQL database using your favorite MySQL client with the above credentials (and using e.g. *server.dev* as hostname).
+**Note:** Remote MySQL access is enabled by default, so you can access the MySQL database using your favorite MySQL client with the above credentials (and using e.g. *projectname.local* as hostname).
 
 ### Memcached
 * Port: 11211
