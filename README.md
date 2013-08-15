@@ -8,7 +8,7 @@ The idea is for developers to fork this and add additional software and configur
 * [Vagrant](http://vagrantup.com)
 * [vagrant-hostmaster](https://github.com/mosaicxm/vagrant-hostmaster)
 
-**Note:** Because of several dependencies, this project requires Vagrant 1.0.x for now.
+**Note:** Vagrant 1.0.x compatible stack [is also available](https://github.com/MiniCodeMonkey/Vagrant-LAMP-Stack/tree/Vagrant-1.0.x)
 
 ## Installation
 Clone this repository and it's submodules
