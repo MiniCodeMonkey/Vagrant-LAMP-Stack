@@ -1,12 +1,12 @@
 <?php
 // MySQL
-$mysqli = new mysqli('localhost', 'root', 'root');
+$mysqli = @new mysqli('localhost', 'root', 'root');
 
 $mysql_running = true;
 if (mysqli_connect_errno()) {
     $mysql_running = false;
 } else {
-	$mysql_version = $mysqli->server_version;
+	$mysql_version = $mysqli->server_info;
 }
 
 $mysqli->close();
