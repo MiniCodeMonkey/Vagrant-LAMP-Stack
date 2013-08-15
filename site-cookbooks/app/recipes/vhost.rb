@@ -1,18 +1,18 @@
 #
-# Cookbook Name:: misc
+# Cookbook Name:: app
 # Recipe:: vhost
 #
 # Copyright 2013, Mathias Hansen
 #
 
 # Define app name
-app_name = "#{node['misc']['name']}"
+app_name = "#{node['app']['name']}"
 
 # Enable vhost
 web_app app_name do
-  server_name node['misc']['server_name']
-  server_aliases node['misc']['server_aliases']
-  docroot node['misc']['docroot']
+  server_name node['app']['server_name']
+  server_aliases node['app']['server_aliases']
+  docroot node['app']['docroot']
   log_dir node['apache']['log_dir'] 
 end
 

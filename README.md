@@ -5,15 +5,20 @@ The idea is for developers to fork this and add additional software and configur
 
 ## Requirements
 * [VirtualBox](https://www.virtualbox.org)
-* [Vagrant](http://vagrantup.com)
-* [vagrant-hostmaster](https://github.com/mosaicxm/vagrant-hostmaster)
+* [Vagrant 1.2.x](http://vagrantup.com)
+* [Berkshelf](http://berkshelf.com)
+	* `gem install berkshelf`
+* [vagrant-berkshelf](https://github.com/riotgames/vagrant-berkshelf)
+	* `vagrant plugin install vagrant-berkshelf`
+* [vagrant-hostmanager](https://github.com/smdahlen/vagrant-hostmanager)
+	* `vagrant plugin install vagrant-hostmanager`
 
-**Note:** Because of several dependencies, this project requires Vagrant 1.0.x for now.
+**Note:** Vagrant 1.0.x compatible stack [is also available](https://github.com/MiniCodeMonkey/Vagrant-LAMP-Stack/tree/Vagrant-1.0.x).
 
 ## Installation
-Clone this repository and it's submodules
+Clone this repository
 
-    $ git clone git@github.com:MiniCodeMonkey/Vagrant-LAMP-Stack.git --recursive
+    $ git clone git@github.com:MiniCodeMonkey/Vagrant-LAMP-Stack.git
 
 Place your website in the `public_html` folder
 
