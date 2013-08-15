@@ -24,13 +24,10 @@ Vagrant.configure("2") do |config|
 
   # Enable and configure chef solo
   config.vm.provision :chef_solo do |chef|
-    chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
     chef.add_recipe "app::packages"
     chef.add_recipe "app::web_server"
     chef.add_recipe "app::vhost"
     chef.add_recipe "memcached"
-    chef.add_recipe "mysql"
-    chef.add_recipe "mysql::server"
     chef.add_recipe "app::db"
     chef.add_recipe "postfix"
     chef.json = {

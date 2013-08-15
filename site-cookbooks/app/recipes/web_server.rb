@@ -13,7 +13,6 @@ include_recipe "apache2::mod_rewrite"
 include_recipe "apache2::mod_ssl"
 
 # Install PHP
-include_recipe "apt"
 include_recipe "dotdeb"
 include_recipe "dotdeb::php54"
 include_recipe "php"
@@ -27,4 +26,12 @@ end
 bash "fix-phpcomments" do
   code "find /etc/php5/cli/conf.d/ -name '*.ini' -exec sed -i -re 's/^(\\s*)#(.*)/\\1;\\2/g' {} \\;"
   notifies :restart, resources("service[apache2]"), :delayed
+end
+
+# Install Composer
+bash "composer" do
+  code <<-EOH
+    curl -s https://getcomposer.org/installer | php
+    sudo mv composer.phar /usr/local/bin/composer
+  EOH
 end
