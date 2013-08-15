@@ -1,34 +1,29 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-def Kernel.is_windows?
-    # Detect if we are running on Windows
-    processor, platform, *rest = RUBY_PLATFORM.split("-")
-    platform == 'mingw32'
-end
+Vagrant.configure("2") do |config|
+  # Enable Berkshelf support
+  config.berkshelf.enabled = true
 
-Vagrant::Config.run do |config|
   # Define VM box to use
   config.vm.box = "precise32"
   config.vm.box_url = "http://files.vagrantup.com/precise32.box"
 
-  # Increase memory of the VM
-  config.vm.customize ["modifyvm", :id, "--memory", 512]
-
-  # Define hostname to be used with Hostmaster
-  config.vm.host_name = "server.dev"
-  config.hosts.name = "server.dev"
+  # Set share folder
+  config.vm.synced_folder "./" , "/var/www/projectname/"
 
   # Use hostonly network with a static IP Address
-  config.vm.network :hostonly, "172.90.90.90"
-
-  # Set share folder
-  use_nfs = !Kernel.is_windows?
-  config.vm.share_folder "shared" , "/home/vagrant/shared", "./", :nfs => use_nfs
+  config.hostmanager.enabled = true
+  config.hostmanager.manage_host = true
+  config.hostmanager.include_offline = true
+  config.vm.define 'projectname' do |node|
+    node.vm.hostname = 'projectname.local'
+    node.vm.network :private_network, ip: '172.90.90.90'
+    node.hostmanager.aliases = %w(www.projectname.local)
+  end
 
   # Enable and configure chef solo
   config.vm.provision :chef_solo do |chef|
-    chef.cookbooks_path = ["cookbooks"]
     chef.add_recipe "apt"
     chef.add_recipe "postfix"
     chef.add_recipe "openssl"
@@ -48,27 +43,27 @@ Vagrant::Config.run do |config|
     chef.json = {
       :misc => {
         # Project name
-        :name           => "server",
+        :name           => "projectname",
 
         # Name of MySQL database that should be created
         :db_name        => "dbname",
 
         # Optional database dump to be imported when server is provisioned
         # If the file doesn't exist, it is just ignored
-        :db_dump        => "/home/vagrant/shared/dump.sql",
+        :db_dump        => "/var/www/projectname/dump.sql",
 
         # Server name and alias(es) for Apache vhost
-        :server_name    => "server.dev",
-        :server_aliases => "*.server.dev",
+        :server_name    => "projectname.local",
+        :server_aliases => "www.projectname.local",
 
         # Document root for Apache vhost
-        :docroot        => "/home/vagrant/shared/public_html",
+        :docroot        => "/var/www/projectname/public_html",
       },
       :mysql => {
         :server_root_password   => 'root',
         :server_repl_password   => 'root',
         :server_debian_password => 'root',
-        :bind_address           => '172.90.90.90',
+        :bind_address           => '0.0.0.0',
         :allow_remote_root      => true
       }
     }
