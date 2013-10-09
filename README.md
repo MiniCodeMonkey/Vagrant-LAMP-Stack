@@ -56,3 +56,7 @@ If you are using the default configuration, just create a `dump.sql` file in the
 
 ### Memcached
 * Port: 11211
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/MiniCodeMonkey/vagrant-lamp-stack/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
