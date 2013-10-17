@@ -5,7 +5,7 @@ The idea is for developers to fork this and add additional software and configur
 
 ## Requirements
 * [VirtualBox](https://www.virtualbox.org)
-* [Vagrant 1.2.x](http://vagrantup.com)
+* [Vagrant](http://vagrantup.com)
 * [Berkshelf](http://berkshelf.com)
 	* `gem install berkshelf`
 * [vagrant-berkshelf](https://github.com/riotgames/vagrant-berkshelf)
