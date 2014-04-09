@@ -24,13 +24,15 @@
     # Enable Berkshelf support
     config.berkshelf.enabled = true
 
+    # Use the omnibus installer for the latest Chef installation
+    config.omnibus.chef_version = :latest
+
     # Define VM box to use
     config.vm.box = "precise32"
     config.vm.box_url = "http://files.vagrantup.com/precise32.box"
 
     # Set share folder
     config.vm.synced_folder "./" , "/var/www/" + project_name + "/", :mount_options => ["dmode=777", "fmode=666"]
-
 
     # Use hostonly network with a static IP Address and enable
     # hostmanager so we can have a custom domain for the server
@@ -43,10 +45,6 @@
       node.hostmanager.aliases = [ "www." + project_name + ".local" ]
     end
     config.vm.provision :hostmanager
-
-    # Make sure that the newest version of Chef have been installed
-    config.vm.provision :shell, :inline => "apt-get update -qq && apt-get install make ruby1.9.1-dev --no-upgrade --yes"
-    config.vm.provision :shell, :inline => "gem install chef --version 11.6.0 --no-rdoc --no-ri --conservative"
 
     # Enable and configure chef solo
     config.vm.provision :chef_solo do |chef|

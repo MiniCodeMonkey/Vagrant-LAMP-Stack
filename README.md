@@ -12,6 +12,8 @@ The idea is for developers to fork this and add additional software and configur
 	* `vagrant plugin install vagrant-berkshelf`
 * [vagrant-hostmanager](https://github.com/smdahlen/vagrant-hostmanager)
 	* `vagrant plugin install vagrant-hostmanager`
+* [vagrant-omnibus](https://github.com/schisamo/vagrant-omnibus)
+	* `vagrant plugin install vagrant-omnibus`
 
 **Note:** Vagrant 1.0.x compatible stack [is also available](https://github.com/MiniCodeMonkey/Vagrant-LAMP-Stack/tree/Vagrant-1.0.x).
 
