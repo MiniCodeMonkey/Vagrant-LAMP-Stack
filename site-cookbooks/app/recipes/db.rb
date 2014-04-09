@@ -6,7 +6,6 @@
 #
 
 # Install MySQL server & MySQL client
-include_recipe "mysql"
 include_recipe "mysql::server"
 
 # Create database if it doesn't exist

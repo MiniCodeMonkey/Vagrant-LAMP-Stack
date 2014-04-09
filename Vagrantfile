@@ -24,6 +24,9 @@
     # Enable Berkshelf support
     config.berkshelf.enabled = true
 
+    # Use the omnibus installer
+    config.omnibus.chef_version = :latest
+
     # Define VM box to use
     config.vm.box = "precise32"
     config.vm.box_url = "http://files.vagrantup.com/precise32.box"
