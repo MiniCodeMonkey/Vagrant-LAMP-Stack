@@ -46,6 +46,7 @@ If you are using the default configuration, just create a `dump.sql` file in the
 * memcached
 * postfix
 * vim, git, screen, curl, composer
+* Zend Guard Loader 6
 
 ## Default credentials
 ### MySQL
