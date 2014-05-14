@@ -48,9 +48,11 @@
 
     # Enable and configure chef solo
     config.vm.provision :chef_solo do |chef|
+      chef.custom_config_path = "Vagrantfile.chef"
       chef.add_recipe "app::packages"
       chef.add_recipe "app::web_server"
       chef.add_recipe "app::vhost"
+      chef.add_recipe "app::zendguardloader"
       chef.add_recipe "memcached"
       chef.add_recipe "app::db"
       chef.json = {
