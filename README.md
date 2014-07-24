@@ -22,7 +22,7 @@ Clone this repository
 
     $ git clone git@github.com:MiniCodeMonkey/Vagrant-LAMP-Stack.git
 
-Place your website in the `public_html` folder
+Place your website in the `public` folder
 
 ## Usage
 Start the VM
