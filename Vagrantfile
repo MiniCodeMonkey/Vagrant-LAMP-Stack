@@ -1,6 +1,13 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# Environment variables
+#################################
+
+MEMORY = ENV['VM_MEMORY'] || '512'
+CORES = ENV['VM_CORES'] || '1'
+ARCH = ENV['VM_ARCH'] || '32'
+
 # General project settings
 #################################
 
@@ -26,11 +33,23 @@ Vagrant.configure("2") do |config|
   config.omnibus.chef_version = :latest
 
   # Define VM box to use
-  config.vm.box = "precise32"
-  config.vm.box_url = "http://files.vagrantup.com/precise32.box"
+  config.vm.box = "precise#{ARCH}"
+  config.vm.box_url = "http://files.vagrantup.com/precise#{ARCH}.box"
 
   # Set share folder
   config.vm.synced_folder "./" , "/var/www/" + project_name + "/", :mount_options => ["dmode=777", "fmode=666"]
+
+  # Provider-specific configuration so you can fine-tune VirtualBox for Vagrant.
+  # These expose provider-specific options.
+  config.vm.provider :virtualbox do |vm|
+    # Use VBoxManage to customize the VM. For example to change memory:
+    vm.customize ["modifyvm", :id, "--memory", MEMORY.to_i]
+    vm.customize ["modifyvm", :id, "--cpus", CORES.to_i]
+
+    if CORES.to_i > 1
+      vm.customize ["modifyvm", :id, "--ioapic", "on"]
+    end
+  end
 
   # Use hostonly network with a static IP Address and enable
   # hostmanager so we can have a custom domain for the server

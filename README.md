@@ -24,6 +24,14 @@ Clone this repository
 
 Place your website in the `public` folder
 
+## Environment variables
+
+```bash
+VM_MEMORY=512
+VM_CORES=1
+VM_ARCH=32
+```
+
 ## Usage
 Start the VM
 
