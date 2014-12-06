@@ -20,7 +20,8 @@ database_password = "root"
 
 Vagrant.configure("2") do |config|
   # Enable Berkshelf support
-  config.berkshelf.enabled = true
+  # config.berkshelf.enabled = true
+
 
   # Use the omnibus installer for the latest Chef installation
   config.omnibus.chef_version = :latest
@@ -46,6 +47,10 @@ Vagrant.configure("2") do |config|
 
   # Enable and configure chef solo
   config.vm.provision :chef_solo do |chef|
+
+  # Set cookbooks_path if using Librarian-Chef (https://github.com/applicationsonline/librarian-chef)
+  chef.cookbooks_path = "cookbooks"
+
     chef.add_recipe "app::packages"
     chef.add_recipe "app::web_server"
     chef.add_recipe "app::vhost"
