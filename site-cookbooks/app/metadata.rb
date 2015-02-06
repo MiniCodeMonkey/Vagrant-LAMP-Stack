@@ -11,7 +11,7 @@ depends "dotdeb"
 depends "php"
 depends "apt"
 depends "openssl"
-depends "mysql"
+depends "mysql", "~> 5.0"
 
 %w{ debian ubuntu }.each do |os|
   supports os
