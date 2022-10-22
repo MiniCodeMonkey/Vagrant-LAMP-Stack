@@ -6,7 +6,7 @@
 
 # IP Address for the host only network, change it to anything you like
 # but please keep it within the IPv4 private network range
-ip_address = "172.22.22.22"
+ip_address = "172.22.22.100"
 
 # The project name is base for directories, hostname and alike
 project_name = "projectname"
@@ -26,7 +26,7 @@ Vagrant.configure("2") do |config|
   config.omnibus.chef_version = :latest
 
   # Define VM box to use
-  config.vm.box = "precise32"
+  config.vm.box = "ubuntu/trusty64"
   config.vm.box_url = "http://files.vagrantup.com/precise32.box"
 
   # Set share folder
